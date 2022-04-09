@@ -1,0 +1,111 @@
+*,
+*::after,
+*::before {
+  font-family: "Open Sans", sans-serif;
+}
+header{
+  background-color: black;
+  color:white;
+}
+body{
+  background-color: aquamarine;
+}
+/*El contenedor de las cartas*/
+.card-grid {
+  border: transparent;
+  display: grid;
+  /*Para poder moverlas de acuerdo al dispositivo*/
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.card {
+  --padding: 1rem;
+  background-color: white;
+  border: 1px ridge #777;
+  border-radius: .25rem;
+  overflow: hidden;
+}
+
+.card.card-shadow {
+  border: none;
+  /*el tamaño del medio es para diferenciar que tiene mas sombra abajo que arriba*/
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+.card-header {
+  font-size: 1.5rem;
+  padding: var(--padding);
+  padding-bottom: 0;
+  margin-bottom: 0.5rem;
+}
+.card-header.card-image {
+  padding: 0;
+  overflow: hidden;
+}
+.card-header.card-image > img {
+  display: block;
+  width: 100%;
+  max-height: 200px;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  object-position: center;
+  transition: 200ms transform ease-in-out;
+}
+/*para hacer el zoom*/
+.card:hover>.card-header.card-image > img {
+transform: scale(1.025);
+}
+
+.card-body {
+  font-size: 0.9rem;
+  padding: 0 var(--padding);
+}
+
+.card-footer {
+  margin-top: 1.5rem;
+  padding-top:0;
+  padding: var(--padding);
+}
+
+.btn {
+  --color: hsl(
+    200,
+    50%,
+    50%
+  ); /*Esto es una variable para ahorrar y simplicar la escritura del codigo*/
+  background: var(--color);
+  color: white;
+  border: none;
+  padding: 0.5em, 75em;
+  border-radius: 0.25em;
+  cursor: pointer;
+}
+
+.btn:hover,
+.bnt:focus {
+  /*Asi es un poco mas claro y le hace un efecto*/
+  background: hsl(200, 50%, 60%);
+}
+
+.btn.btn-outline {
+  background: none;
+  border: 1px solid var(--color);
+  color: var(--color);
+}
+
+.btn.btn-outline:hover,
+.btn.btn-outline:focus {
+  /*Asi es un poco mas claro y le hace un efecto*/
+  background: hsl(200, 50%, 90%);
+}
+/* Asi si tenes dos botones o mas quedan separados de forma facil y se regula mejor*/
+.btn + .btn {
+  margin-left: 0.25rem;
+}
+
+footer{
+  background-color: black;
+  overflow: auto;
+}
